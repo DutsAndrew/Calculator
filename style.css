@@ -1,0 +1,29 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.calculator {
+    height: 600px;
+    width: 450px;
+    background-color: pink;
+}
+
+.display {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 80px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+/* #arithmetic {
+    
+} */
