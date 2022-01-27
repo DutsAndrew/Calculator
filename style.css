@@ -4,12 +4,16 @@ body {
     font-weight: 500;
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .calculator {
     height: 600px;
     width: 450px;
     background-color: pink;
+    padding-top: 5px;
+    border-radius: 5px;
 }
 
 .display {
@@ -24,6 +28,24 @@ body {
     border-radius: 10px;
 }
 
-/* #arithmetic {
-    
-} */
+.topBtns {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: auto;
+    height: 20px;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    margin: auto;
+}
+
+.longBtns {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 30px;
+}
