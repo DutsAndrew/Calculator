@@ -94,14 +94,16 @@ body {
 
 .numbers {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     gap: 10px;
-    margin-left: auto;
+    margin-left: 20px;
     padding-top: 20px;
     padding-right: 20px;
 }
 
 .numberRow {
+    display: flex;
+    flex-flow: row-reverse wrap;
     gap: 10px;
 }
 
