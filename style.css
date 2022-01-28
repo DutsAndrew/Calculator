@@ -22,7 +22,7 @@ body {
     margin: auto;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color: rgb(16, 147, 199);
     height: 80px;
     width: 400px;
     border-radius: 10px;
@@ -48,4 +48,24 @@ body {
     align-items: center;
     width: 150px;
     height: 30px;
+    background-color: seashell;
+    color: rgb(16, 147, 199);
+    border: 1px solid cornsilk;
+}
+
+.bodyBtns {
+    display: flex;
+    flex-flow: row wrap;
+    flex: auto;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.shortBtn {
+    width: 60px;
+    height: 60px;
+    background-color: rgb(255, 253, 108);
+    color: rgb(16, 147, 199);
+    border: 1px solid cornsilk;
 }
