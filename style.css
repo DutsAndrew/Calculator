@@ -67,7 +67,7 @@ body {
     gap: 10px;
 }
 
-.shortBtn {
+.operatorBtn {
     display: flex;
     flex-flow: row wrap;
     width: 65px;
