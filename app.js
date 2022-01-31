@@ -32,9 +32,7 @@ function addIt(number1, number2) {
 
 function subtractIt(number1, number2) {
     let sum;
-    let maxInt = Math.max(number1, number2);
-    let minInt = Math.min(number1, number2);
-    sum = maxInt - minInt;
+    sum = number1 - number2;
     return sum;
 };
 
@@ -54,6 +52,12 @@ function multiplyIt(Array) {
         sum = sum * Array[i];
     }
     return sum;
+};
+
+function divideIt(number1, number2) {
+    let sum;
+    sum = 0;
+    sum = (number1 / number2);
 };
 
 function powerIt(power1, power2) {
