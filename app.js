@@ -26,13 +26,13 @@ const sum = document.querySelector('#sum');
 //math logic
 function addIt(number1, number2) {
     let sum;
-    sum = number1 + number2;
+    sum = (number1 + number2);
     return sum;
 }
 
 function subtractIt(number1, number2) {
     let sum;
-    sum = number1 - number2;
+    sum = (number1 - number2);
     return sum;
 };
 
@@ -45,19 +45,16 @@ function sumIt(Array) {
     return sum;
 };
 
-function multiplyIt(Array) {
+function multiplyIt(number1, number2) {
     let sum;
-    sum = 0;
-    for (let i = 0; i < Array.length; i++) {
-        sum = sum * Array[i];
-    }
+    sum = (number1 * number2)
     return sum;
 };
 
 function divideIt(number1, number2) {
     let sum;
-    sum = 0;
     sum = (number1 / number2);
+    return sum;
 };
 
 function powerIt(power1, power2) {
@@ -81,4 +78,22 @@ function factorialIt(factorial) {
         sum *= factorial;
     }
     return sum;
+};
+
+// Event Listeners
+clear.addEventListener('click', clearIt);
+backspace.addEventListener('click', backSpaceIt);
+operatorBtn.forEach((button) => button.addEventListener('click', operateIt));
+
+// Calculator Functionality
+function clearIt() {
+
+};
+
+function backSpaceIt() {
+
+};
+
+function operateIt() {
+
 };
