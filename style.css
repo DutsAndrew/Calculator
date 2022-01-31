@@ -27,6 +27,7 @@ body {
     width: 400px;
     border-radius: 10px;
     margin-top: 10px;
+    font-size: 28px;
 }
 
 .topBtns {
@@ -56,6 +57,7 @@ body {
     border: 1px solid cornsilk;
     margin-top: 15px;
     border-radius: 20px;
+    font-size: 16px;
 }
 
 .bodyBtns {
@@ -68,7 +70,7 @@ body {
     gap: 10px;
 }
 
-.operatorBtn {
+.operatorBtn, .equalsBtn {
     display: flex;
     flex-flow: row wrap;
     width: 65px;

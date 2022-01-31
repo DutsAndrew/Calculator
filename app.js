@@ -5,6 +5,7 @@ const clear = document.querySelector('#clear');
 const backspace = document.querySelector('#backspace');
 const digitBtn = document.querySelectorAll('.digitBtn');
 const operatorBtn = document.querySelectorAll('.operatorBtn');
+const equalsBtn = document.querySelector('.equalsBtn');
 
 const nine = document.querySelector('#nine');
 const eight = document.querySelector('#eight');
@@ -20,8 +21,6 @@ const multiply = document.querySelector('#multiply');
 const divide = document.querySelector('#divide');
 const add = document.querySelector('#add');
 const subract = document.querySelector('#subtract');
-const sum = document.querySelector('#sum');
-
 
 //math logic
 function addIt(number1, number2) {
@@ -36,14 +35,14 @@ function subtractIt(number1, number2) {
     return sum;
 };
 
-function sumIt(Array) {
-    let sum;
-    sum = 0;
-    for (let i = 0; i < Array.length; i++) {
-        sum += Array[i];
-    }
-    return sum;
-};
+// function sumIt(Array) {
+//     let sum;
+//     sum = 0;
+//     for (let i = 0; i < Array.length; i++) {
+//         sum += Array[i];
+//     }
+//     return sum;
+// };
 
 function multiplyIt(number1, number2) {
     let sum;
@@ -83,6 +82,7 @@ function factorialIt(factorial) {
 // Event Listeners
 clear.addEventListener('click', clearIt);
 backspace.addEventListener('click', backSpaceIt);
+equalsBtn.addEventListener('click', sumIt);
 operatorBtn.forEach((button) => button.addEventListener('click', operateIt));
 digitBtn.forEach((button) => button.addEventListener('click', operateIt));
 
@@ -98,3 +98,11 @@ function backSpaceIt() {
 function operateIt() {
     console.log("operatorBtns or digitBtns are working");
 };
+
+function sumIt() {
+    console.log("equalsBtn is working");
+};
+
+// set number1 and number2 as mutatable variables
+let number1 = '';
+let number2 = '';
