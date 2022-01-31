@@ -84,16 +84,17 @@ function factorialIt(factorial) {
 clear.addEventListener('click', clearIt);
 backspace.addEventListener('click', backSpaceIt);
 operatorBtn.forEach((button) => button.addEventListener('click', operateIt));
+digitBtn.forEach((button) => button.addEventListener('click', operateIt));
 
 // Calculator Functionality
 function clearIt() {
-
+    console.log("clear button is working");
 };
 
 function backSpaceIt() {
-
+    console.log("backspace button is working");
 };
 
 function operateIt() {
-
+    console.log("operatorBtns or digitBtns are working");
 };
