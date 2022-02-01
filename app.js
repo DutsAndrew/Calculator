@@ -22,6 +22,10 @@ const divide = document.querySelector('#divide');
 const add = document.querySelector('#add');
 const subract = document.querySelector('#subtract');
 
+// set number1 and number2 as mutatable variables
+let number1 = '';
+let number2 = '';
+
 //math logic
 function addIt(number1, number2) {
     let sum;
@@ -79,12 +83,16 @@ function factorialIt(factorial) {
     return sum;
 };
 
+function roundIt(number) {
+    return Math.round(number * 1000) / 1000;
+}
+
 // Event Listeners
 clear.addEventListener('click', clearIt);
 backspace.addEventListener('click', backSpaceIt);
 equalsBtn.addEventListener('click', sumIt);
-operatorBtn.forEach((button) => button.addEventListener('click', operateIt));
-digitBtn.forEach((button) => button.addEventListener('click', operateIt));
+operatorBtn.forEach((button) => button.addEventListener('click', () => getOperator(button.textContent)));
+digitBtn.forEach((button) => button.addEventListener('click', () => getNumber(button.textContent)));
 
 // Calculator Functionality
 function clearIt() {
@@ -95,14 +103,24 @@ function backSpaceIt() {
     console.log("backspace button is working");
 };
 
-function operateIt() {
-    console.log("operatorBtns or digitBtns are working");
-};
+function getNumber(number) {
+    display.textContent += number;
+}
 
-function sumIt() {
-    console.log("equalsBtn is working");
-};
+function operatorSelector(operator, number1, number2) {
+    number1 = number(number1);
+    number2 = number(number2);
 
-// set number1 and number2 as mutatable variables
-let number1 = '';
-let number2 = '';
+    switch(operator) {
+        case 'x':
+            return multiplyIt(number1, number2);
+        case '/':
+            return divideIt(number1, number2);
+        case '+':
+            return addIt(number1, number2);
+        case '-':
+            return subtractIt(number1, number2);
+        default:
+            return null;
+    };
+};
