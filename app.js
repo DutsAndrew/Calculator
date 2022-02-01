@@ -97,15 +97,21 @@ digitBtn.forEach((button) => button.addEventListener('click', () => getNumber(bu
 // Calculator Functionality
 function clearIt() {
     console.log("clear button is working");
+    display.textContent = '';
 };
 
 function backSpaceIt() {
     console.log("backspace button is working");
+    display.textContent = display.textContent.toString().slice(0, -1);
 };
 
 function getNumber(number) {
     display.textContent += number;
 }
+
+function sumIt(number1, number2) {
+    console.log("equalsBtn clicked");
+} 
 
 function operatorSelector(operator, number1, number2) {
     number1 = number(number1);
