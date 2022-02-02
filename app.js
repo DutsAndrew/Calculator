@@ -71,25 +71,29 @@ function getOperator(operator) {
 function createEquation() {
     number2 = display.textContent;
     console.log(`operator selected was ${selectedOperator}, number1 is ${number1}, and number2 is ${number2}`);
+    result = display.textContent = roundIt(operate(selectedOperator, number1, number2));
+    return result;
+}
 
-    // switch(selectedOperator) {
-    //     case 'x':
-    //         return multiplyIt(number1, number2);
-    //     case '/':
-    //         return divideIt(number1, number2);
-    //     case '+':
-    //         return addIt(number1, number2);
-    //     case '-':
-    //         return subtractIt(number1, number2);
-    //     default:
-    //         return null;
-    // };
+function operate(selectedOperator, number1, number2) {
+    switch(selectedOperator) {
+        case 'x':
+            return multiplyIt(number1, number2);
+        case '/':
+            return divideIt(number1, number2);
+        case '+':
+            return addIt(number1, number2);
+        case '-':
+            return subtractIt(number1, number2);
+        default:
+            return null;
+    };
 }
 
 //math logic
 function addIt(number1, number2) {
     let sum;
-    sum = (number1 + number2);
+    sum = number1*1 + number2*1;
     return sum;
 }
 
