@@ -26,15 +26,20 @@ const subract = document.querySelector('#subtract');
 let number1 = '';
 let number2 = '';
 let selectedOperator = '';
+let result = null;
 
 // Event Listeners
 clear.addEventListener('click', clearIt);
 backspace.addEventListener('click', backSpaceIt);
-equalsBtn.addEventListener('click', operate);
+equalsBtn.addEventListener('click', createEquation);
 operatorBtn.forEach((button) => button.addEventListener('click', () => getOperator(button.textContent)));
 digitBtn.forEach((button) => button.addEventListener('click', () => getNumber(button.textContent)));
 
 // Calculator Functionality
+function resetDisplay() {
+    display.textContent = '';
+};
+
 function clearIt() {
     console.log("clear button is working");
     display.textContent = '';
@@ -49,49 +54,36 @@ function backSpaceIt() {
 };
 
 function getNumber(number) {
-    if (number1 === '') {
-        number1 = number;
-        display.textContent += number1;
-        console.log(`number1: ${number1} has been saved`);
-    } else if (number1 !== 'null') {
-        number2 = number;
-        display.textContent += number2;
-        console.log(`number2: ${number2} has been saved`);
-    } else if (number1 !== null && number2 !== null) {
-        operate(number1, number2);
-        console.log("sending number1 and number2 to operate");
-    }
+        if (display.textContent == 'Enter your Equation :)') {
+            display.textContent = '';
+            display.textContent += number;
+        } else if (display.textContent !== 'Enter your Equation :)') {
+            display.textContent += number;
+        }
 };
 
 function getOperator(operator) {
-    if (selectedOperator === '') {
-        console.log("operatorBtn was clicked");
-        selectedOperator = operator;
-        display.textContent += (" " + `${selectedOperator}` + " ");
-        console.log(selectedOperator);
-    } else if (selectedOperator !== 'null') {
-        operate(selectedOperator);
-    } else {
-        clearIt();
-        console.log("getOperator did not save or send an operator to operate");
-    }
+    number1 = display.textContent;
+    selectedOperator = operator;
+    resetDisplay();
 };
 
-function operate(operator, number1, number2) {
-    console.log(`operator selected was ${operator}, number1 is ${number1}, and number2 is ${number2}`);
+function createEquation() {
+    number2 = display.textContent;
+    console.log(`operator selected was ${selectedOperator}, number1 is ${number1}, and number2 is ${number2}`);
 
-    switch(operator) {
-        case 'x':
-            return multiplyIt(number1, number2);
-        case '/':
-            return divideIt(number1, number2);
-        case '+':
-            return addIt(number1, number2);
-        case '-':
-            return subtractIt(number1, number2);
-        default:
-            return null;
-    };
+    // switch(selectedOperator) {
+    //     case 'x':
+    //         return multiplyIt(number1, number2);
+    //     case '/':
+    //         return divideIt(number1, number2);
+    //     case '+':
+    //         return addIt(number1, number2);
+    //     case '-':
+    //         return subtractIt(number1, number2);
+    //     default:
+    //         return null;
+    // };
 }
 
 //math logic
