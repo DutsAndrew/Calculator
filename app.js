@@ -90,38 +90,28 @@ function operate(selectedOperator, number1, number2) {
 
 //math logic
 function addIt(number1, number2) {
-    let sum;
-    sum = number1*1 + number2*1;
-    return sum;
+    return number1*1 + number2*1;
 }
 
 function subtractIt(number1, number2) {
-    let sum;
-    sum = (number1 - number2);
-    return sum;
+    return (number1 - number2);
 };
 
 function multiplyIt(number1, number2) {
-    let sum;
-    sum = (number1 * number2)
-    return sum;
+    return (number1 * number2)
 };
 
 function divideIt(number1, number2) {
-    let sum;
-    sum = (number1 / number2);
-    return sum;
+    return (number1 / number2);
 };
 
 function powerIt(number1, number2) {
-    let sum;
-    sum = number1 * number2;
-    return sum;
+    return number1 * number2;
 };
 
 function factorialIt(number1) {
-    let sum;
-    sum = number1;
+    let factorial;
+    factorial = number1;
 
     if (number1 < 0) {
         return (-1);
@@ -131,9 +121,9 @@ function factorialIt(number1) {
 
     while (number1 > 1) {
         number1--;
-        sum *= number1;
+        factorial *= number1;
     }
-    return sum;
+    return factorial;
 };
 
 function roundIt(number) {
