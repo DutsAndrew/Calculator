@@ -7,16 +7,6 @@ const digitBtn = document.querySelectorAll('.digitBtn');
 const operatorBtn = document.querySelectorAll('.operatorBtn');
 const equalsBtn = document.querySelector('#equalsBtn');
 
-const nine = document.querySelector('#nine');
-const eight = document.querySelector('#eight');
-const seven = document.querySelector('#seven');
-const six = document.querySelector('#six');
-const five = document.querySelector('#five');
-const four = document.querySelector('#four');
-const three = document.querySelector('#three');
-const two = document.querySelector('#two');
-const one = document.querySelector('#one');
-
 const multiply = document.querySelector('#multiply');
 const divide = document.querySelector('#divide');
 const add = document.querySelector('#add');
@@ -54,12 +44,12 @@ function backSpaceIt() {
 };
 
 function getNumber(number) {
-        if (display.textContent == 'Enter your Equation :)') {
-            display.textContent = '';
-            display.textContent += number;
-        } else if (display.textContent !== 'Enter your Equation :)') {
-            display.textContent += number;
-        }
+    if (display.textContent == 'Enter your Equation :)') {
+        display.textContent = '';
+        display.textContent += number;
+    } else if (display.textContent !== 'Enter your Equation :)') {
+        display.textContent += number;
+    }
 };
 
 function getOperator(operator) {
@@ -72,8 +62,8 @@ function createEquation() {
     number2 = display.textContent;
     console.log(`operator selected was ${selectedOperator}, number1 is ${number1}, and number2 is ${number2}`);
     result = display.textContent = roundIt(operate(selectedOperator, number1, number2));
-    return result;
-}
+    preventCrash()
+};
 
 function operate(selectedOperator, number1, number2) {
     switch(selectedOperator) {
@@ -88,7 +78,7 @@ function operate(selectedOperator, number1, number2) {
         default:
             return null;
     };
-}
+};
 
 //math logic
 function addIt(number1, number2) {
@@ -141,3 +131,9 @@ function factorialIt(number1) {
 function roundIt(number) {
     return Math.round(number * 1000) / 1000;
 }
+
+function preventCrash() {
+    if (display.textContent == 'Infinity' || display.textContent == 'NaN') {
+        display.textContent = "Error :(";
+    };
+};

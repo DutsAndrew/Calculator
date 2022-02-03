@@ -76,7 +76,7 @@ body {
     flex-flow: row wrap;
     width: 65px;
     height: 65px;
-    background-color: rgb(255, 253, 108);
+    background-color: seashell;
     color: rgb(16, 147, 199);
     border: 1px solid cornsilk;
     gap: 10px;
