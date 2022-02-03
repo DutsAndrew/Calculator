@@ -44,8 +44,12 @@ function backSpaceIt() {
 };
 
 function getNumber(number) {
-    display.textContent = '';
-    display.textContent += number;
+    if (display.textContent == 'Enter your Equation :)') {
+        display.textContent = '';
+        display.textContent += number;
+    } else if (display.textContent !== 'Enter your Equation :)') {
+        display.textContent += number;
+    }
 };
 
 function getOperator(operator) {
@@ -54,7 +58,9 @@ function getOperator(operator) {
         selectedOperator = operator;
         resetDisplay();
     } else if (number1 !== '') {
+        selectedOperator = operator;
         createEquation();
+        resetDisplay();
     };
 };
 
