@@ -23,12 +23,14 @@ body {
     justify-content: center;
     align-items: center;
     background-color: rgb(16, 147, 199);
+    color: seashell;
     height: 80px;
     width: 400px;
     border-radius: 10px;
     margin-top: 10px;
     font-size: 36px;
     overflow: hidden;
+    padding: 5px;
 }
 
 .topBtns {

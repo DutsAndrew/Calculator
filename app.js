@@ -44,25 +44,27 @@ function backSpaceIt() {
 };
 
 function getNumber(number) {
-    if (display.textContent == 'Enter your Equation :)') {
-        display.textContent = '';
-        display.textContent += number;
-    } else if (display.textContent !== 'Enter your Equation :)') {
-        display.textContent += number;
-    }
+    display.textContent = '';
+    display.textContent += number;
 };
 
 function getOperator(operator) {
-    number1 = display.textContent;
-    selectedOperator = operator;
-    resetDisplay();
+    if (number1 == '') {
+        number1 = display.textContent;
+        selectedOperator = operator;
+        resetDisplay();
+    } else if (number1 !== '') {
+        createEquation();
+    };
 };
 
 function createEquation() {
     number2 = display.textContent;
     console.log(`operator selected was ${selectedOperator}, number1 is ${number1}, and number2 is ${number2}`);
     result = display.textContent = roundIt(operate(selectedOperator, number1, number2));
-    preventCrash()
+    preventCrash();
+    number1 = result;
+    return number1;
 };
 
 function operate(selectedOperator, number1, number2) {
