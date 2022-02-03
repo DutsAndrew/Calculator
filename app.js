@@ -5,7 +5,7 @@ const clear = document.querySelector('#clear');
 const backspace = document.querySelector('#backspace');
 const digitBtn = document.querySelectorAll('.digitBtn');
 const operatorBtn = document.querySelectorAll('.operatorBtn');
-const equalsBtn = document.querySelector('.equalsBtn');
+const equalsBtn = document.querySelector('#equalsBtn');
 
 const nine = document.querySelector('#nine');
 const eight = document.querySelector('#eight');
@@ -102,15 +102,6 @@ function subtractIt(number1, number2) {
     sum = (number1 - number2);
     return sum;
 };
-
-// function sumIt(Array) {
-//     let sum;
-//     sum = 0;
-//     for (let i = 0; i < Array.length; i++) {
-//         sum += Array[i];
-//     }
-//     return sum;
-// };
 
 function multiplyIt(number1, number2) {
     let sum;

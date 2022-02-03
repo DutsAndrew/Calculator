@@ -27,7 +27,8 @@ body {
     width: 400px;
     border-radius: 10px;
     margin-top: 10px;
-    font-size: 28px;
+    font-size: 36px;
+    overflow: hidden;
 }
 
 .topBtns {
@@ -70,7 +71,7 @@ body {
     gap: 10px;
 }
 
-.operatorBtn, .equalsBtn {
+.operatorBtn {
     display: flex;
     flex-flow: row wrap;
     width: 65px;
@@ -112,7 +113,7 @@ body {
     gap: 10px;
 }
 
-.digitBtn {
+.digitBtn, .equalsBtn {
     display: flex;
     flex-flow: row wrap;
     width: 75px;
