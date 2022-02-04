@@ -54,17 +54,18 @@ function inputNumber(number) {
 };
 
 function inputOperator(operator) {
-    if (firstOperator !== null && result === null) {
+    if (firstOperator != null && result != null) {
+        firstOperator = operator;
         number2 = display.textContent;
         operate();
-    } else if (number1 === null) {
+    } else if (number1 == null) {
         number1 = display.textContent;
         firstOperator = operator;
         resetDisplay();
-    } else if (firstOperator === null && result !== null) {
+    } else if (display.textContent == result) {
+        resetDisplay();
         firstOperator = operator;
-        number2 = display.textContent;
-        operate();
+        result = null;
     }
 };
 
@@ -74,23 +75,23 @@ function inputEquals() {
     } else if (firstOperator !== null) {
         number2 = display.textContent;
         operate();
-    } else if (secondOperator !== null) {
+    } else if (number2 == null) {
         number2 = display.textContent;
+        operate();
     }
 }
 
 
 // Calculator logic
 function operate() {
+    number2 = display.textContent;
     console.log(`operator selected was ${firstOperator}, number1 is ${number1}, and number2 is ${number2}`);
     result = display.textContent = roundIt(createEquation(firstOperator, number1, number2));
     preventCrash();
 
-    number1 = result;
     number2 = null;
+    number1 = result;
     firstOperator = null;
-    secondOperator = null;
-    return number1;
 };
 
 function createEquation(firstOperator, number1, number2) {
@@ -114,19 +115,19 @@ function addIt(number1, number2) {
 }
 
 function subtractIt(number1, number2) {
-    return (number1 - number2);
+    return (number1*1 - number2*1);
 };
 
 function multiplyIt(number1, number2) {
-    return (number1 * number2)
+    return (number1*1 * number2*1)
 };
 
 function divideIt(number1, number2) {
-    return (number1 / number2);
+    return (number1*1 / number2*1);
 };
 
 function powerIt(number1, number2) {
-    return number1 * number2;
+    return number1*1 * number2*1;
 };
 
 function factorialIt(number1) {
