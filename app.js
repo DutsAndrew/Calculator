@@ -16,7 +16,7 @@ const subract = document.querySelector('#subtract');
 let number1 = '';
 let number2 = '';
 let selectedOperator = '';
-let result = null;
+let result = '';
 
 // Event Listeners
 clear.addEventListener('click', clearIt);
@@ -46,30 +46,29 @@ function backSpaceIt() {
 function getNumber(number) {
     if (display.textContent == 'Enter your Equation :)') {
         display.textContent = '';
-        display.textContent += number;
-    } else if (display.textContent !== 'Enter your Equation :)') {
-        display.textContent += number;
     }
+    display.textContent += number;
 };
 
 function getOperator(operator) {
-    if (number1 == '') {
-        number1 = display.textContent;
-        selectedOperator = operator;
-        resetDisplay();
-    } else if (number1 !== '') {
-        selectedOperator = operator;
+    if (selectedOperator !== '') {
         createEquation();
-        resetDisplay();
-    };
+    }
+
+    number1 = display.textContent;
+    selectedOperator = operator;
+    resetDisplay();
 };
 
 function createEquation() {
     number2 = display.textContent;
     console.log(`operator selected was ${selectedOperator}, number1 is ${number1}, and number2 is ${number2}`);
-    result = display.textContent = roundIt(operate(selectedOperator, number1, number2));
+    result = roundIt(operate(selectedOperator, number1, number2));
     preventCrash();
+    display.textContent = result;
+    
     number1 = result;
+    selectedOperator = '';
     return number1;
 };
 
