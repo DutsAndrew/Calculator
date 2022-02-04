@@ -13,29 +13,32 @@ const add = document.querySelector('#add');
 const subract = document.querySelector('#subtract');
 
 // set number1 and number2 as mutatable variables
-let number1 = '';
-let number2 = '';
-let selectedOperator = '';
-let result = '';
+let number1 = null;
+let number2 = null;
+let firstOperator = null;
+let secondOperator = null;
+let result = null;
 
 // Event Listeners
 clear.addEventListener('click', clearIt);
 backspace.addEventListener('click', backSpaceIt);
-equalsBtn.addEventListener('click', createEquation);
-operatorBtn.forEach((button) => button.addEventListener('click', () => getOperator(button.textContent)));
-digitBtn.forEach((button) => button.addEventListener('click', () => getNumber(button.textContent)));
+equalsBtn.addEventListener('click', inputEquals);
+operatorBtn.forEach((button) => button.addEventListener('click', () => inputOperator(button.textContent)));
+digitBtn.forEach((button) => button.addEventListener('click', () => inputNumber(button.textContent)));
 
-// Calculator Functionality
+// Calculator input
 function resetDisplay() {
-    display.textContent = '';
+    display.textContent = null;
 };
 
 function clearIt() {
     console.log("clear button is working");
-    display.textContent = '';
-    number1 = '';
-    number2 = '';
-    selectedOperator = '';
+    display.textContent = 0;
+    number1 = null;
+    number2 = null;
+    firstOperator = null;
+    secondOperator = null;
+    result = null;
 };
 
 function backSpaceIt() {
@@ -43,37 +46,55 @@ function backSpaceIt() {
     display.textContent = display.textContent.toString().slice(0, -1);
 };
 
-function getNumber(number) {
-    if (display.textContent == 'Enter your Equation :)') {
-        display.textContent = '';
+function inputNumber(number) {
+    if (display.textContent == 'Enter your Equation :)' || display.textContent == 0 || result != null) {
+        display.textContent = null;
     }
     display.textContent += number;
 };
 
-function getOperator(operator) {
-    if (selectedOperator !== '') {
-        createEquation();
+function inputOperator(operator) {
+    if (firstOperator !== null && result === null) {
+        number2 = display.textContent;
+        operate();
+    } else if (number1 === null) {
+        number1 = display.textContent;
+        firstOperator = operator;
+        resetDisplay();
+    } else if (firstOperator === null && result !== null) {
+        firstOperator = operator;
+        number2 = display.textContent;
+        operate();
     }
-
-    number1 = display.textContent;
-    selectedOperator = operator;
-    resetDisplay();
 };
 
-function createEquation() {
-    number2 = display.textContent;
-    console.log(`operator selected was ${selectedOperator}, number1 is ${number1}, and number2 is ${number2}`);
-    result = roundIt(operate(selectedOperator, number1, number2));
+function inputEquals() {
+    if (firstOperator === null) {
+        display.textContent = display.textContent;
+    } else if (firstOperator !== null) {
+        number2 = display.textContent;
+        operate();
+    } else if (secondOperator !== null) {
+        number2 = display.textContent;
+    }
+}
+
+
+// Calculator logic
+function operate() {
+    console.log(`operator selected was ${firstOperator}, number1 is ${number1}, and number2 is ${number2}`);
+    result = display.textContent = roundIt(createEquation(firstOperator, number1, number2));
     preventCrash();
-    display.textContent = result;
-    
+
     number1 = result;
-    selectedOperator = '';
+    number2 = null;
+    firstOperator = null;
+    secondOperator = null;
     return number1;
 };
 
-function operate(selectedOperator, number1, number2) {
-    switch(selectedOperator) {
+function createEquation(firstOperator, number1, number2) {
+    switch(firstOperator) {
         case 'x':
             return multiplyIt(number1, number2);
         case '/':
@@ -130,7 +151,7 @@ function roundIt(number) {
 }
 
 function preventCrash() {
-    if (display.textContent == 'Infinity' || display.textContent == 'NaN') {
+    if (display.textContent === 'Infinity' || display.textContent === 'NaN') {
         display.textContent = "Error :(";
-    };
+    }
 };
