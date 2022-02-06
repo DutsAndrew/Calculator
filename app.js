@@ -54,28 +54,26 @@ function inputNumber(number) {
 };
 
 function inputOperator(operator) {
-    if (firstOperator != null && result != null) {
-        firstOperator = operator;
-        number2 = display.textContent;
-        operate();
-    } else if (number1 == null) {
+    if (number1 == null) {
         number1 = display.textContent;
         firstOperator = operator;
         resetDisplay();
-    } else if (display.textContent == result) {
-        resetDisplay();
+    } else if (number1 != null && firstOperator != null) {
+        number2 = display.textContent;
+        secondOperator = operator;
+        operate();
+        firstOperator = secondOperator;
+        secondOperator = null;
+    } else if (number2 == null && firstOperator == null & secondOperator == null) {
         firstOperator = operator;
-        result = null;
+        resetDisplay();
     }
 };
 
 function inputEquals() {
     if (firstOperator === null) {
         display.textContent = display.textContent;
-    } else if (firstOperator !== null) {
-        number2 = display.textContent;
-        operate();
-    } else if (number2 == null) {
+    } else {
         number2 = display.textContent;
         operate();
     }
@@ -84,7 +82,6 @@ function inputEquals() {
 
 // Calculator logic
 function operate() {
-    number2 = display.textContent;
     console.log(`operator selected was ${firstOperator}, number1 is ${number1}, and number2 is ${number2}`);
     result = display.textContent = roundIt(createEquation(firstOperator, number1, number2));
     preventCrash();
