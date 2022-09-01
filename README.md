@@ -1,4 +1,9 @@
 # Calculator
+
+<strong>Preview:</strong>
+
+![Calculator](https://user-images.githubusercontent.com/94728848/187819453-ef3fb9ee-340b-4a86-b4bf-6d7c6a6ef5d5.gif)
+
 This is my web browser calculator! It runs in all browsers and can chain multiple expressions.
 
 This project was a fun one to build and took a lot of playing around with to get things working correctly. I learned some really important things during this project that I wanted to note.
